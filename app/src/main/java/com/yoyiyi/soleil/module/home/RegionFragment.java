@@ -1,6 +1,6 @@
 package com.yoyiyi.soleil.module.home;
 
-import android.support.v7.widget.GridLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.annimon.stream.Stream;
 import com.yoyiyi.soleil.R;

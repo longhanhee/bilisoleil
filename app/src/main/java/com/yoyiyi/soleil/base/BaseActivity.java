@@ -3,10 +3,10 @@ package com.yoyiyi.soleil.base;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
-import android.support.annotation.LayoutRes;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.IdRes;
+import androidx.annotation.LayoutRes;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
@@ -20,8 +20,10 @@ import com.yoyiyi.soleil.rx.RxBus;
 import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil;
 
+import javax.annotation.Nullable;
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.disposables.Disposable;
 
@@ -34,11 +36,17 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
 
     @Inject
     protected T mPresenter;
+    @BindView(R.id.toolbar)
+    @Nullable
     protected Toolbar mToolbar;//Toolbar
+    @BindView(R.id.cl_error)
+    @Nullable
+    public ConstraintLayout mError;
+
     protected Context mContext;//上下文环境
     // protected DrawerLayout mDrawerLayout;
     protected boolean mBack = true;
-    private ConstraintLayout mError;
+
     private Disposable mDisposable;
 
     @Override
@@ -47,9 +55,7 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
         setContentView(getLayoutId());
         mContext = this;
         ButterKnife.bind(this);
-        // mDrawerLayout = ButterKnife.findById(this, R.id.drawer_layout);
-        mToolbar = ButterKnife.findById(this, R.id.toolbar);
-        mError = ButterKnife.findById(this, R.id.cl_error);
+        // mDrawerLayout = findViewById(R.id.drawer_layout);
         initStatusBar();
         initInject();
         initPresenter();
@@ -125,7 +131,7 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
     protected void onSaveInstanceState(Bundle outState) {
         //如果用以下这种做法则不保存状态，再次进来的话会显示默认tab
         //总是执行这句代码来调用父类去保存视图层的状态
-        //super.onSaveInstanceState(outState);
+        super.onSaveInstanceState(outState);
     }
 
     /**

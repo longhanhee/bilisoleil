@@ -1,7 +1,7 @@
 package com.yoyiyi.soleil.base;
 
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.utils.AppUtils;
@@ -39,10 +39,11 @@ public abstract class BaseRefreshActivity<T extends BaseContract.BasePresenter, 
 
     @Override
     protected void initWidget() {
-        mRefresh = ButterKnife.findById(this, R.id.refresh);
-        mRecycler = ButterKnife.findById(this, R.id.recycler);
+        mRefresh = findViewById(R.id.refresh);
+        mRefresh = findViewById(R.id.refresh);
+        mRecycler = findViewById(R.id.recycler);
         //加载框
-        mLoading = ButterKnife.findById(this, R.id.pw_loading);
+        mLoading = findViewById(R.id.pw_loading);
         initRefreshLayout();
         initRecyclerView();
     }

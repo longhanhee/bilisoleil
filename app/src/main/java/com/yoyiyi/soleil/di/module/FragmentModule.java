@@ -1,7 +1,7 @@
 package com.yoyiyi.soleil.di.module;
 
 import android.app.Activity;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import com.yoyiyi.soleil.di.scope.FragmentScope;
 import dagger.Module;
 import dagger.Provides;

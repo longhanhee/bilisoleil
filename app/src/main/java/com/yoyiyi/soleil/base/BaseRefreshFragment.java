@@ -1,8 +1,8 @@
 package com.yoyiyi.soleil.base;
 
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.utils.AppUtils;
@@ -53,8 +53,8 @@ public abstract class BaseRefreshFragment<T extends BaseContract.BasePresenter, 
 
     @Override
     public void finishCreateView(Bundle state) {
-        mRefresh = ButterKnife.findById(mRootView, R.id.refresh);
-        mRecycler = ButterKnife.findById(mRootView, R.id.recycler);
+        mRefresh = mRootView.findViewById(R.id.refresh);
+        mRecycler = mRootView.findViewById(R.id.recycler);
         isPrepared = true;
         lazyLoad();
     }

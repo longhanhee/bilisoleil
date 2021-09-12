@@ -1,6 +1,6 @@
 package com.yoyiyi.soleil.module.discover;
 
-import android.support.v7.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.yoyiyi.soleil.R;

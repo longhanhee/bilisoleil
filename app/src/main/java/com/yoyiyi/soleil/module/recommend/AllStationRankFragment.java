@@ -1,7 +1,7 @@
 package com.yoyiyi.soleil.module.recommend;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.adapter.recommend.AllStationRankAdapter;

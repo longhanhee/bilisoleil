@@ -1,8 +1,8 @@
 package com.yoyiyi.soleil.module.home;
 
-import android.support.constraint.ConstraintLayout;
-import android.support.constraint.Guideline;
-import android.support.v7.widget.LinearLayoutManager;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.Guideline;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;

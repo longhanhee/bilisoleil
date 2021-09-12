@@ -1,6 +1,6 @@
 package com.yoyiyi.soleil.module.search;
 
-import android.support.v7.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.adapter.search.UpAdapter;

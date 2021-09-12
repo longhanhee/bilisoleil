@@ -2,9 +2,9 @@ package com.yoyiyi.soleil.module.home;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.base.BaseFragment;
@@ -33,7 +33,7 @@ public abstract class BaseHomeFragment extends BaseFragment {
 
     @SuppressLint("CheckResult")
     private void initToolbar() {
-        mToolbar = ButterKnife.findById(mRootView, R.id.toolbar);
+        mToolbar = mRootView.findViewById(R.id.toolbar);
         if (mToolbar != null) {
             mToolbar.setTitle("");
             ((AppCompatActivity) getActivity()).setSupportActionBar(mToolbar);

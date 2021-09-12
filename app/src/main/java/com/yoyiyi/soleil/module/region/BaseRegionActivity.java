@@ -1,10 +1,10 @@
 package com.yoyiyi.soleil.module.region;
 
 import android.annotation.SuppressLint;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -37,8 +37,8 @@ public abstract class BaseRegionActivity<T extends BaseContract.BasePresenter, K
     @SuppressLint("CheckResult")
     @Override
     protected void initToolbar() {
-        mTvTitle = ButterKnife.findById(this, R.id.tv_title);
-        mIvBack = ButterKnife.findById(this, R.id.iv_back);
+        mTvTitle = findViewById(R.id.tv_title);
+        mIvBack = findViewById(R.id.iv_back);
         if (mIvBack != null)
             mIvBack.setOnClickListener(view -> {
                 finish();
@@ -58,8 +58,8 @@ public abstract class BaseRegionActivity<T extends BaseContract.BasePresenter, K
     }
 
     protected void initSlidingTabLayout() {
-        mSlidingTabLayout = ButterKnife.findById(this, R.id.sliding_tabs);
-        mViewPager = ButterKnife.findById(this, R.id.view_pager);
+        mSlidingTabLayout = findViewById(R.id.sliding_tabs);
+        mViewPager = findViewById(R.id.view_pager);
 
     }
 

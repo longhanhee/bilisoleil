@@ -1,9 +1,10 @@
 <component name="libraryTable">
   <library name="Gradle: com.orhanobut:logger:1.15@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2fda1bc504cf95035992a487ca6ebbfb/logger-1.15/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2fda1bc504cf95035992a487ca6ebbfb/logger-1.15/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2fda1bc504cf95035992a487ca6ebbfb/logger-1.15/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/636f8ae82537e79cc8c8b8b13531a81e/jetified-logger-1.15/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/636f8ae82537e79cc8c8b8b13531a81e/jetified-logger-1.15/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/636f8ae82537e79cc8c8b8b13531a81e/jetified-logger-1.15/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.orhanobut/logger/1.15/a54c3d980e5da53acec434e8b61605adb83bba6/logger-1.15-javadoc.jar!/" />

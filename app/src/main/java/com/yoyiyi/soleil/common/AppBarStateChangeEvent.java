@@ -1,6 +1,6 @@
 package com.yoyiyi.soleil.common;
 
-import android.support.design.widget.AppBarLayout;
+import com.google.android.material.appbar.AppBarLayout;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com

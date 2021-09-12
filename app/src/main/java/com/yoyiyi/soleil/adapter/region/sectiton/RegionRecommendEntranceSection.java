@@ -6,8 +6,8 @@ package com.yoyiyi.soleil.adapter.region.sectiton;
  * 描述:分区入口Section
  */
 
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.adapter.region.RegionRecommendEntranceAdapter;

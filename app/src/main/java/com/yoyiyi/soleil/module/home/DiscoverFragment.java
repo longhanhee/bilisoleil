@@ -2,8 +2,8 @@ package com.yoyiyi.soleil.module.home;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.support.v4.widget.NestedScrollView;
-import android.support.v7.widget.CardView;
+import androidx.core.widget.NestedScrollView;
+import androidx.cardview.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;

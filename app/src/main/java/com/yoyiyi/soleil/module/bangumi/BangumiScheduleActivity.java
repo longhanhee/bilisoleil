@@ -1,6 +1,6 @@
 package com.yoyiyi.soleil.module.bangumi;
 
-import android.support.v7.widget.GridLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import android.text.TextUtils;
 
 import com.annimon.stream.Stream;

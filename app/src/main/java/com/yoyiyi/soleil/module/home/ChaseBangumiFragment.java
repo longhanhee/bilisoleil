@@ -1,6 +1,6 @@
 package com.yoyiyi.soleil.module.home;
 
-import android.support.v7.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.adapter.home.section.chase.ChaseAdSection;

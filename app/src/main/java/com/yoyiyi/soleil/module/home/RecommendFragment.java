@@ -1,7 +1,7 @@
 package com.yoyiyi.soleil.module.home;
 
 import android.content.Intent;
-import android.support.v7.widget.GridLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import android.widget.ImageView;
 
 import com.annimon.stream.Stream;

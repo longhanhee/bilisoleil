@@ -1,6 +1,6 @@
 package com.yoyiyi.soleil.adapter.discover;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 

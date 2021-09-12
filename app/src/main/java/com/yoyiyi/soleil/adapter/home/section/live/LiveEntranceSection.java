@@ -1,7 +1,7 @@
 package com.yoyiyi.soleil.adapter.home.section.live;
 
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.adapter.home.LiveEntranceAdapter;

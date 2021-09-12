@@ -1,6 +1,6 @@
 package com.yoyiyi.soleil.module.region;
 
-import android.support.v7.widget.GridLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import android.view.Menu;
 import android.view.MenuItem;
 

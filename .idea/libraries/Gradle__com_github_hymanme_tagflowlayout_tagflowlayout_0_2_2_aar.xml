@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.hymanme.tagflowlayout:tagflowlayout:0.2.2@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/21d7aa9c7f178884600828379b63f0fe/tagflowlayout-0.2.2/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/21d7aa9c7f178884600828379b63f0fe/tagflowlayout-0.2.2/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/21d7aa9c7f178884600828379b63f0fe/tagflowlayout-0.2.2/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f2f8ff0f55e2ddbe64fea9a9bb467f5b/jetified-tagflowlayout-0.2.2/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f2f8ff0f55e2ddbe64fea9a9bb467f5b/jetified-tagflowlayout-0.2.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f2f8ff0f55e2ddbe64fea9a9bb467f5b/jetified-tagflowlayout-0.2.2/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.hymanme.tagflowlayout/tagflowlayout/0.2.2/712d4c59f2e52857a0f43d3d23208867163e398b/tagflowlayout-0.2.2-javadoc.jar!/" />

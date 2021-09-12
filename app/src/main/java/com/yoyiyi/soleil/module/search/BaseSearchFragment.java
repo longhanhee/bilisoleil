@@ -1,7 +1,7 @@
 package com.yoyiyi.soleil.module.search;
 
 import android.graphics.drawable.AnimationDrawable;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.widget.ImageView;
 
 import com.yoyiyi.soleil.R;
@@ -28,8 +28,8 @@ public abstract class BaseSearchFragment<T extends BaseContract.BasePresenter, K
 
     @Override
     public void initWidget() {
-        mIvSearchLoad = ButterKnife.findById(mRootView, R.id.iv_search_load);
-        mRecycler = ButterKnife.findById(mRootView, R.id.recycler);
+        mIvSearchLoad = mRootView.findViewById(R.id.iv_search_load);
+        mRecycler = mRootView.findViewById(R.id.recycler);
         initRecyclerView();
     }
 

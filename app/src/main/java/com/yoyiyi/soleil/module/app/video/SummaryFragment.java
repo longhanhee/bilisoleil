@@ -1,7 +1,7 @@
 package com.yoyiyi.soleil.module.app.video;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.adapter.app.video.SummaryAdapter;
