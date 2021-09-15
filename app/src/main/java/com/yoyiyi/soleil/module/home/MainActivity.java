@@ -17,7 +17,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 
-import com.trello.rxlifecycle4.LifecycleProvider;
+import com.trello.rxlifecycle2.LifecycleProvider;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.base.BaseActivity;
 import com.yoyiyi.soleil.constant.Constants;

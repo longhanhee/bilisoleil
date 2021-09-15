@@ -12,7 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.trello.rxlifecycle4.components.support.RxFragment;
+import com.trello.rxlifecycle2.components.support.RxFragment;
 import com.yoyiyi.soleil.BiliSoleilApplication;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.di.component.DaggerFragmentComponent;
