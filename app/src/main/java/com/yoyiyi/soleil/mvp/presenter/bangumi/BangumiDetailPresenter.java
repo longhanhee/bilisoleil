@@ -1,21 +1,33 @@
 package com.yoyiyi.soleil.mvp.presenter.bangumi;
 
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.annimon.stream.Stream;
 import com.yoyiyi.soleil.base.BaseSubscriber;
 import com.yoyiyi.soleil.base.RxPresenter;
 import com.yoyiyi.soleil.bean.bangumi.BangumiDetail;
+import com.yoyiyi.soleil.bean.bangumi.BangumiDetailRecommend;
 import com.yoyiyi.soleil.bean.bangumi.MulBangumiDetail;
 import com.yoyiyi.soleil.mvp.contract.bangumi.BangumiDetailContract;
 import com.yoyiyi.soleil.network.helper.RetrofitHelper;
+import com.yoyiyi.soleil.network.response.HttpResponse;
 import com.yoyiyi.soleil.rx.RxUtils;
+
+import org.reactivestreams.Publisher;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 import javax.inject.Inject;
+
+import io.reactivex.functions.Function;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -39,39 +51,43 @@ public class BangumiDetailPresenter extends RxPresenter<BangumiDetailContract.Vi
         StringBuilder title = new StringBuilder();
         BaseSubscriber<List<MulBangumiDetail>> subscriber = mRetrofitHelper.getBangumiDetail()
                 .compose(RxUtils.handleResult())
-                .flatMap(bangumiDetail -> {
-                    title.append(bangumiDetail.title);
-                    List<BangumiDetail.EpisodesBean> episodes = bangumiDetail.episodes;
-                    Collections.reverse(episodes);//反转
-                    mulBangumiDetails.addAll(Arrays.asList(
-                            new MulBangumiDetail()
-                                    .setItemType(MulBangumiDetail.TYPE_HEAD)//头部
-                                    .setPlayCount(bangumiDetail.play_count)
-                                    .setCover(bangumiDetail.cover)
-                                    .setFavorites(bangumiDetail.favorites)
-                                    .setIsFinish(bangumiDetail.is_finish),
-                            new MulBangumiDetail()
-                                    .setItemType(MulBangumiDetail.TYPE_SEASON)//分季节
-                                    .setSeasonsTitle(bangumiDetail.season_title)
-                                    .setSeasonsBeanList(bangumiDetail.seasons),
-                            new MulBangumiDetail()
-                                    .setItemType(MulBangumiDetail.TYPE_EPISODE_HEAD)
-                                    .setTotalCount(bangumiDetail.total_count)
-                                    .setIsFinish(bangumiDetail.is_finish),//分集头部
-                            new MulBangumiDetail()
-                                    .setItemType(MulBangumiDetail.TYPE_EPISODE_ITEM)//分集
-                                    .setEpisodesBeans(episodes),
-                            new MulBangumiDetail()
-                                    .setItemType(MulBangumiDetail.TYPE_CONTRACTED)
-                                    .setlistBeanList(bangumiDetail.rank.list)
-                                    .setTotalBpCount(bangumiDetail.rank.total_bp_count)
-                                    .setWeekBpCount(bangumiDetail.rank.week_bp_count),//承包
-                            new MulBangumiDetail()
-                                    .setItemType(MulBangumiDetail.TYPE_DES)
-                                    .setEvaluate(bangumiDetail.evaluate)
-                                    .setTagsBeanList(bangumiDetail.tags)//简介
-                    ));
-                    return mRetrofitHelper.getBangumiDetailRecommend();
+                .flatMap(new Function<BangumiDetail, Publisher<? extends HttpResponse<BangumiDetailRecommend>>>() {
+                    @NonNull
+                    @Override
+                    public Publisher<? extends HttpResponse<BangumiDetailRecommend>> apply(@NonNull BangumiDetail bangumiDetail) throws Exception {
+                        title.append(bangumiDetail.title);
+                        List<BangumiDetail.EpisodesBean> episodes = bangumiDetail.episodes;
+                        Collections.reverse(episodes);//反转
+                        mulBangumiDetails.addAll(Arrays.asList(
+                                new MulBangumiDetail()
+                                        .setItemType(MulBangumiDetail.TYPE_HEAD)//头部
+                                        .setPlayCount(bangumiDetail.play_count)
+                                        .setCover(bangumiDetail.cover)
+                                        .setFavorites(bangumiDetail.favorites)
+                                        .setIsFinish(bangumiDetail.is_finish),
+                                new MulBangumiDetail()
+                                        .setItemType(MulBangumiDetail.TYPE_SEASON)//分季节
+                                        .setSeasonsTitle(bangumiDetail.season_title)
+                                        .setSeasonsBeanList(bangumiDetail.seasons),
+                                new MulBangumiDetail()
+                                        .setItemType(MulBangumiDetail.TYPE_EPISODE_HEAD)
+                                        .setTotalCount(bangumiDetail.total_count)
+                                        .setIsFinish(bangumiDetail.is_finish),//分集头部
+                                new MulBangumiDetail()
+                                        .setItemType(MulBangumiDetail.TYPE_EPISODE_ITEM)//分集
+                                        .setEpisodesBeans(episodes),
+                                new MulBangumiDetail()
+                                        .setItemType(MulBangumiDetail.TYPE_CONTRACTED)
+                                        .setlistBeanList(bangumiDetail.rank.list)
+                                        .setTotalBpCount(bangumiDetail.rank.total_bp_count)
+                                        .setWeekBpCount(bangumiDetail.rank.week_bp_count),//承包
+                                new MulBangumiDetail()
+                                        .setItemType(MulBangumiDetail.TYPE_DES)
+                                        .setEvaluate(bangumiDetail.evaluate)
+                                        .setTagsBeanList(bangumiDetail.tags)//简介
+                        ));
+                        return mRetrofitHelper.getBangumiDetailRecommend();
+                    }
                 })
                 .compose(RxUtils.handleResult())
                 .flatMap(bangumiDetailRecommend -> {

@@ -12,7 +12,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.flyco.tablayout.SlidingTabLayout;
-import com.jakewharton.rxbinding2.view.RxView;
+
+import com.jakewharton.rxbinding4.view.RxView;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.base.BaseActivity;
 import com.yoyiyi.soleil.bean.search.SearchArchive;

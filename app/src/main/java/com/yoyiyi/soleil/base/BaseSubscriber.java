@@ -55,7 +55,6 @@ public abstract class BaseSubscriber<T> extends ResourceSubscriber<T> {
         onSuccess(response);
     }
 
-
     @Override
     public void onError(Throwable e) {
         if (mView == null) return;

@@ -1,7 +1,11 @@
 package com.yoyiyi.soleil.rx;
 
+import androidx.annotation.NonNull;
+
 import com.yoyiyi.soleil.network.exception.ApiException;
 import com.yoyiyi.soleil.network.response.HttpResponse;
+
+import org.reactivestreams.Publisher;
 
 import java.util.List;
 
@@ -71,18 +75,28 @@ public class RxUtils {
      * @return
      */
     public static <T> FlowableTransformer<HttpResponse<T>, T> handleResult() {
-        return httpResponseFlowable ->
-                httpResponseFlowable.flatMap((Function<HttpResponse<T>, Flowable<T>>) httpResponse -> {
-                    if (httpResponse.code == 0) {
-                        if (httpResponse.data != null)
-                            return createData(httpResponse.data);
-                        if (httpResponse.result != null)
-                            return createData(httpResponse.result);
-                        return Flowable.error(new ApiException("服务器返回error"));
-                    } else {
-                        return Flowable.error(new ApiException("服务器返回error"));
+
+        return new FlowableTransformer<HttpResponse<T>, T>() {
+            @NonNull
+            @Override
+            public Publisher<T> apply(@NonNull Flowable<HttpResponse<T>> httpResponseFlowable) {
+                return httpResponseFlowable.flatMap(new Function<HttpResponse<T>, Flowable<T>>() {
+                    @NonNull
+                    @Override
+                    public Flowable<T> apply(@NonNull HttpResponse<T> httpResponse) throws Exception {
+                        if (httpResponse.code == 0) {
+                            if (httpResponse.data != null)
+                                return createData(httpResponse.data);
+                            if (httpResponse.result != null)
+                                return createData(httpResponse.result);
+                            return Flowable.error(new ApiException("服务器返回error"));
+                        } else {
+                            return Flowable.error(new ApiException("服务器返回error"));
+                        }
                     }
                 });
+            }
+        };
     }
 
     /**
@@ -92,17 +106,26 @@ public class RxUtils {
      * @return
      */
     public static <T> FlowableTransformer<HttpResponse<List<T>>, List<T>> handleListResult() {
-        return httpResponseFlowable ->
-                httpResponseFlowable.flatMap((Function<HttpResponse<List<T>>, Flowable<List<T>>>) httpResponse -> {
-                    if (httpResponse.code == 0) {
-                        if (httpResponse.data != null)
-                            return createData(httpResponse.data);
-                        if (httpResponse.result != null)
-                            return createData(httpResponse.result);
-                        return Flowable.error(new ApiException("服务器返回error"));
-                    } else {
-                        return Flowable.error(new ApiException("服务器返回error"));
+        return new FlowableTransformer<HttpResponse<List<T>>, List<T>>() {
+            @NonNull
+            @Override
+            public Publisher<List<T>> apply(@NonNull Flowable<HttpResponse<List<T>>> httpResponseFlowable) {
+                return httpResponseFlowable.flatMap(new Function<HttpResponse<List<T>>, Flowable<List<T>>>() {
+                    @NonNull
+                    @Override
+                    public Flowable<List<T>> apply(@NonNull HttpResponse<List<T>> httpResponse) throws Exception {
+                        if (httpResponse.code == 0) {
+                            if (httpResponse.data != null)
+                                return createData(httpResponse.data);
+                            if (httpResponse.result != null)
+                                return createData(httpResponse.result);
+                            return Flowable.error(new ApiException("服务器返回error"));
+                        } else {
+                            return Flowable.error(new ApiException("服务器返回error"));
+                        }
                     }
                 });
+            }
+        };
     }
 }

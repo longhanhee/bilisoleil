@@ -5,13 +5,19 @@ import android.content.Intent;
 
 import com.google.android.material.internal.NavigationMenuView;
 import com.google.android.material.navigation.NavigationView;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.Lifecycle;
+
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 
+import com.trello.rxlifecycle4.LifecycleProvider;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.base.BaseActivity;
 import com.yoyiyi.soleil.constant.Constants;
@@ -30,6 +36,11 @@ import java.util.List;
 
 import butterknife.BindView;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
+
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/5/23 14:23
@@ -44,6 +55,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     DrawerLayout mDrawerLayout;
     private int mCurrentPos = -1;
     private List<Fragment> mFragments = new ArrayList<>();
+
+
 
     @Override
     protected int getLayoutId() {
@@ -71,6 +84,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     @Override
     protected void initVariables() {
         initFragment();
+
         //监听事件
         RxBus.INSTANCE.toFlowable(Event.StartNavigationEvent.class)
                 .compose(bindToLifecycle())
@@ -90,9 +104,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         }
         transaction.show(mFragments.get(pos)).commit();
         mCurrentPos = pos;
-
     }
-
 
     /**
      * 去掉滚动条

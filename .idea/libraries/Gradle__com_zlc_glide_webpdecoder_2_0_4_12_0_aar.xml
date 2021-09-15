@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.zlc.glide:webpdecoder:2.0.4.12.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f4b8392f091d4313bbdabb60f6cee6e9/jetified-webpdecoder-2.0.4.12.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f4b8392f091d4313bbdabb60f6cee6e9/jetified-webpdecoder-2.0.4.12.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f4b8392f091d4313bbdabb60f6cee6e9/jetified-webpdecoder-2.0.4.12.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.zlc.glide/webpdecoder/2.0.4.12.0/1d36361e9dd091b2fc47129d8d31ed007c2f1bc3/webpdecoder-2.0.4.12.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.zlc.glide/webpdecoder/2.0.4.12.0/c6d0c6c68f28b5713d58d087bc1357d1dcf41989/webpdecoder-2.0.4.12.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

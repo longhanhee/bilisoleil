@@ -9,7 +9,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 
-import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
+import com.trello.rxlifecycle4.components.support.RxAppCompatActivity;
 import com.yoyiyi.soleil.BiliSoleilApplication;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.di.component.ActivityComponent;

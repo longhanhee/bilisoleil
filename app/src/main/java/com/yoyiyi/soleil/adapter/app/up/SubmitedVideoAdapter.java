@@ -4,6 +4,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.yoyiyi.soleil.R;
@@ -38,13 +39,27 @@ public class SubmitedVideoAdapter extends BaseMultiItemQuickAdapter<MulUpDetail,
                 break;
 
             case MulUpDetail.TYPE_SUBMITED_VIDEO_ITEM:
+//                Glide.with(mContext)
+//                        .load(mulUpDetail.archiveBean.cover)
+//                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+//                        .placeholder(R.drawable.bili_default_image_tv)
+//                        .bitmapTransform(new RoundedCornersTransformation(mContext, 5, 0))
+//                        .dontAnimate()
+//                        .into((ImageView) holder.getView(R.id.iv_video_preview));
+
+
+                RequestOptions sharedOptions =
+                        new RequestOptions()
+                                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                .placeholder(R.drawable.bili_default_image_tv)
+                                .transform(new RoundedCornersTransformation(5, 0, RoundedCornersTransformation.CornerType.ALL))
+                                .dontAnimate();
+
                 Glide.with(mContext)
                         .load(mulUpDetail.archiveBean.cover)
-                        .diskCacheStrategy(DiskCacheStrategy.ALL)
-                        .placeholder(R.drawable.bili_default_image_tv)
-                        .bitmapTransform(new RoundedCornersTransformation(mContext, 5, 0))
-                        .dontAnimate()
+                        .apply(sharedOptions)
                         .into((ImageView) holder.getView(R.id.iv_video_preview));
+
 
                 holder.setText(R.id.tv_video_title, mulUpDetail.archiveBean.title)
                         .setText(R.id.tv_video_play, NumberUtils.format(mulUpDetail.archiveBean.play + ""))

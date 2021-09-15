@@ -9,8 +9,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import com.jakewharton.rxbinding2.view.RxView;
-import com.jakewharton.rxbinding2.widget.RxTextView;
+import com.jakewharton.rxbinding4.view.RxView;
+import com.jakewharton.rxbinding4.widget.RxTextView;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.base.BaseActivity;
 import com.yoyiyi.soleil.constant.Constants;
@@ -23,6 +23,9 @@ import com.yoyiyi.soleil.utils.ToastUtils;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
+import io.reactivex.rxjava3.annotations.NonNull;
+import io.reactivex.rxjava3.core.Observable;
+import kotlin.Unit;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -88,13 +91,15 @@ public class LoginActivity extends BaseActivity {
                 .compose(bindToLifecycle())
                 .subscribe(textViewTextChangeEvent -> {
                     mEtPassword.setText("");
-                    if (textViewTextChangeEvent.count() > 0) {
+                    if (textViewTextChangeEvent.getCount() > 0) {
                         visible(mDeleteUsername);
                     } else {
                         gone(mDeleteUsername);
                     }
                 });
         //点击登录监听
+        @NonNull Observable<Unit> a = RxView.clicks(mBtnLogin)
+                .throttleFirst(5, TimeUnit.SECONDS);
         RxView.clicks(mBtnLogin)
                 .throttleFirst(5, TimeUnit.SECONDS)//5秒内取第一个事件 防止重复点击发送事件
                 .compose(bindToLifecycle())

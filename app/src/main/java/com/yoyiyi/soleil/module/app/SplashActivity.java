@@ -11,8 +11,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.jakewharton.rxbinding2.view.RxView;
-import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
+
+import com.jakewharton.rxbinding4.view.RxView;
+import com.trello.rxlifecycle4.components.support.RxAppCompatActivity;
 import com.yoyiyi.soleil.BiliSoleilApplication;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.app.Splash;

@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.annimon.stream.Stream;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.yoyiyi.soleil.R;
@@ -30,6 +31,7 @@ import com.yoyiyi.soleil.widget.flowlayout.TagFlowLayout;
 import java.util.List;
 
 import jp.wasabeef.glide.transformations.BlurTransformation;
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -70,12 +72,24 @@ public class BangumiDetailAdapter extends BaseMultiItemQuickAdapter<MulBangumiDe
                             .diskCacheStrategy(DiskCacheStrategy.ALL)
                             .dontAnimate()
                             .into((ImageView) holder.getView(R.id.iv_pic));
+//                    Glide.with(mContext)
+//                            .load(mulBangumiDetail.cover)
+//                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+//                            .placeholder(R.drawable.bili_default_image_tv)
+//                            .bitmapTransform(new BlurTransformation(mContext, 26))
+//                            .dontAnimate()
+//                            .into((ImageView) holder.getView(R.id.iv_pic_big));
+
+                    RequestOptions sharedOptions =
+                            new RequestOptions()
+                                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                    .placeholder(R.drawable.bili_default_image_tv)
+                                    .transform(new BlurTransformation( 26))
+                                    .dontAnimate();
+
                     Glide.with(mContext)
                             .load(mulBangumiDetail.cover)
-                            .diskCacheStrategy(DiskCacheStrategy.ALL)
-                            .placeholder(R.drawable.bili_default_image_tv)
-                            .bitmapTransform(new BlurTransformation(mContext, 26))
-                            .dontAnimate()
+                            .apply(sharedOptions)
                             .into((ImageView) holder.getView(R.id.iv_pic_big));
                 }
                 break;
