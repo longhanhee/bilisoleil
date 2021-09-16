@@ -144,8 +144,8 @@
     <orderEntry type="library" name="Gradle: com.facebook.stetho:stetho:1.4.2@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.youth.banner:banner:1.4.9@aar" level="project" />
-    <orderEntry type="library" name="Gradle: com.miguelcatalan:materialsearchview:1.4.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.16@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.miguelcatalan:materialsearchview:1.4.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: tv.danmaku.ijk.media:ijkplayer-java:0.8.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: tv.danmaku.ijk.media:ijkplayer-armv7a:0.8.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: tv.danmaku.ijk.media:ijkplayer-armv5:0.8.0@aar" level="project" />

@@ -100,7 +100,6 @@ dependencies {
     //轮播条
     implementation 'com.youth.banner:banner:1.4.9'
     //搜索框
-    implementation 'com.miguelcatalan:materialsearchview:1.4.0'
     //BaseRecyclerViewAdapterHelper
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.16'
     implementation 'com.miguelcatalan:materialsearchview:1.4.0'
