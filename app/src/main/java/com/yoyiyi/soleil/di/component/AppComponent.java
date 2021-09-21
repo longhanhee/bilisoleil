@@ -17,5 +17,4 @@ public interface AppComponent {
     Context getContext();
 
     RetrofitHelper getRetrofitHelper();
-
 }

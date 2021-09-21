@@ -4,11 +4,21 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 
+import com.facebook.flipper.android.AndroidFlipperClient;
+import com.facebook.flipper.android.utils.FlipperUtils;
+import com.facebook.flipper.core.FlipperClient;
+import com.facebook.flipper.plugins.databases.DatabasesFlipperPlugin;
+import com.facebook.flipper.plugins.inspector.DescriptorMapping;
+import com.facebook.flipper.plugins.inspector.InspectorFlipperPlugin;
+import com.facebook.flipper.plugins.network.NetworkFlipperPlugin;
+import com.facebook.flipper.plugins.sharedpreferences.SharedPreferencesFlipperPlugin;
+import com.facebook.soloader.SoLoader;
 import com.facebook.stetho.Stetho;
 import com.yoyiyi.soleil.di.component.AppComponent;
 import com.yoyiyi.soleil.di.component.DaggerAppComponent;
 import com.yoyiyi.soleil.di.module.ApiModule;
 import com.yoyiyi.soleil.di.module.AppModule;
+import com.yoyiyi.soleil.network.helper.OkHttpHelper;
 import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.CrashHandler;
 import com.yoyiyi.soleil.utils.LogUtils;
@@ -50,12 +60,41 @@ public final class BiliSoleilApplication extends Application {
     private static BiliSoleilApplication mContext;
     private Set<Activity> allActivities;
     private AppComponent mAppComponent;
+    public NetworkFlipperPlugin networkFlipperPlugin;
+
+    public NetworkFlipperPlugin getNetworkFlipperPlugin() {
+        return networkFlipperPlugin;
+    }
+
 
     @Override
     public void onCreate() {
         super.onCreate();
         AppUtils.init(this);
         mContext = this;
+
+        SoLoader.init(this, false);
+
+        if (BuildConfig.DEBUG && FlipperUtils.shouldEnableFlipper(this)) {
+            final FlipperClient client = AndroidFlipperClient.getInstance(this);
+            client.addPlugin(OkHttpHelper.getInstance().getNetworkFlipperPlugin());
+            client.addPlugin(new InspectorFlipperPlugin(this, DescriptorMapping.withDefaults()));
+            client.start();
+        }
+
+//        SoLoader.init(this, false);
+//
+//        if (BuildConfig.DEBUG && FlipperUtils.shouldEnableFlipper(this)) {
+//            final FlipperClient client = AndroidFlipperClient.getInstance(this);
+
+//            client.addPlugin(new InspectorFlipperPlugin(this, DescriptorMapping.withDefaults()));
+//            client.addPlugin(new DatabasesFlipperPlugin(this));
+//            client.addPlugin(new SharedPreferencesFlipperPlugin(this));
+////            client.addPlugin(new S1ThreadPlugin());
+////            client.addPlugin(new BackStackFlipperPlugin(this));
+//            client.start();
+//        }
+
         initNetwork();
         initStetho();
         initCrashHandler();

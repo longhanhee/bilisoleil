@@ -3,6 +3,9 @@ package com.yoyiyi.soleil.network.websocket;
 import android.content.Context;
 import android.os.Looper;
 
+import com.facebook.flipper.plugins.network.FlipperOkhttpInterceptor;
+import com.yoyiyi.soleil.BiliSoleilApplication;
+import com.yoyiyi.soleil.network.helper.OkHttpHelper;
 import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.NetworkUtils;
 
@@ -139,6 +142,7 @@ public class WSManager implements IWSManager {
                     .connectTimeout(20 * 1000, TimeUnit.MILLISECONDS)
                     .hostnameVerifier(HttpHelper.UnSafeHostnameVerifier)
                     .sslSocketFactory(sslParams1.sSLSocketFactory, sslParams1.trustManager)
+                    .addNetworkInterceptor(new FlipperOkhttpInterceptor(OkHttpHelper.getInstance().getNetworkFlipperPlugin()))
                     .retryOnConnectionFailure(true)
                     .build();
         }

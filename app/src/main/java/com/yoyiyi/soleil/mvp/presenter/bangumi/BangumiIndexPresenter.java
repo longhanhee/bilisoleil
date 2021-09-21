@@ -23,7 +23,6 @@ public class BangumiIndexPresenter extends RxPresenter<BangumiIndexContract.View
     @Inject
     public BangumiIndexPresenter(RetrofitHelper retrofitHelper) {
         mRetrofitHelper = retrofitHelper;
-
     }
 
     @Override

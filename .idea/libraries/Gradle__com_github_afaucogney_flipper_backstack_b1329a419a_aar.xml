@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.afaucogney:flipper-backstack:b1329a419a@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d0eb6c85de07da2fd9a9c97f078407e5/jetified-flipper-backstack-b1329a419a/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d0eb6c85de07da2fd9a9c97f078407e5/jetified-flipper-backstack-b1329a419a/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d0eb6c85de07da2fd9a9c97f078407e5/jetified-flipper-backstack-b1329a419a/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.afaucogney/flipper-backstack/b1329a419a/b4e45dcafd9ce8473b58670fec1ad06b31a1b6d0/flipper-backstack-b1329a419a-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

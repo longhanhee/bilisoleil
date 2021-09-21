@@ -8,7 +8,10 @@ package com.yoyiyi.soleil.network.helper;
 
 import android.content.Context;
 
+import com.facebook.flipper.plugins.network.FlipperOkhttpInterceptor;
+import com.facebook.flipper.plugins.network.NetworkFlipperPlugin;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
+import com.yoyiyi.soleil.BiliSoleilApplication;
 import com.yoyiyi.soleil.network.support.ApiConstants;
 import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.FileUtils;
@@ -45,8 +48,13 @@ public class OkHttpHelper {
 
     private OkHttpClient mOkHttpClient;
     private Context mContext = AppUtils.getAppContext();
+    private NetworkFlipperPlugin networkFlipperPlugin;
+
 
     private OkHttpHelper() {
+        if (networkFlipperPlugin == null) {
+            networkFlipperPlugin = new NetworkFlipperPlugin();
+        }
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         //包含header、body数据
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -63,6 +71,7 @@ public class OkHttpHelper {
                 .addInterceptor(mRewriteCacheControlInterceptor)
                 //FaceBook 网络调试器，可在Chrome调试网络请求，查看SharePreferences,数据库等
                 .addNetworkInterceptor(new StethoInterceptor())
+                .addNetworkInterceptor(new FlipperOkhttpInterceptor(networkFlipperPlugin))
                 //http数据log，日志中打印出HTTP请求&响应数据
                 .addInterceptor(loggingInterceptor)
                 //便于查看json
@@ -86,6 +95,9 @@ public class OkHttpHelper {
         return mOkHttpClient;
     }
 
+    public NetworkFlipperPlugin getNetworkFlipperPlugin() {
+        return networkFlipperPlugin;
+    }
     /**
      * 设置缓存路径
      *
@@ -113,7 +125,6 @@ public class OkHttpHelper {
         cache = new Cache(cacheDir, HTTP_RESPONSE_DISK_CACHE_MAX_SIZE);
         return cache;
     }
-
 
 
     // 云端响应头拦截器，用来配置缓存策略
